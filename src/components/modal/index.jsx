@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import ModalLayout from './ModalLayout';
 import ControlModalButton from './ControlModalbutton';
-import Modal from './Modal';
+import ModalHeader from './ModalHeader';
+import ModalForm from './modal-form';
+import './Modal.css';
 
 const ModalContainer = () => {
   const [isOpen, toggleModal] = useState(false);
@@ -8,8 +11,9 @@ const ModalContainer = () => {
   return (
     <>
       {isOpen ? (
-        <>
-          <Modal />
+        <ModalLayout>
+          <ModalHeader title='Export Report' />
+          <ModalForm />
           <ControlModalButton
             buttonText='Cancel'
             handleClick={() => toggleModal(!isOpen)}
@@ -18,7 +22,7 @@ const ModalContainer = () => {
             buttonText='OK'
             handleClick={() => toggleModal(!isOpen)}
           />
-        </>
+        </ModalLayout>
       ) : (
         <ControlModalButton
           buttonText='Export Report'

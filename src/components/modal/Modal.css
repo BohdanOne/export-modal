@@ -1,0 +1,31 @@
+.backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index: 100;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(219, 219, 219, 0.9);
+}
+
+.modal {
+  padding: 2rem;
+
+  z-index: 200;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+
+  background-color: #fff;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
