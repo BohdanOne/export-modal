@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import ModalFormField from './ModalFormField';
 import ModalTextInput from './ModalTextInput';
 import ModalRadioInput from './ModalRadioInput';
-import ModalDateInput from './date-input/ModalDateInput';
-import { renderDateInputLabel } from './date-input/utils';
+import ModalDateInput from './ModalDateInput';
+import { renderDateInputLabel } from '../utils/utils';
 
 const ModalForm = ({ onSubmit }) => {
   const formRef = useRef(null);

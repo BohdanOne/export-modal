@@ -3,7 +3,7 @@ import ModalLayout from './shared/ModalLayout';
 import ModalControlButton from './shared/ModalControlButton';
 import Spinner from './shared/Spinner';
 import ModalFormContainer from './form';
-import ModalSummary from './summary';
+import ModalSummaryContainer from './summary';
 import './styles/index.scss';
 
 const ModalContainer = () => {
@@ -42,7 +42,7 @@ const ModalContainer = () => {
           )}
           {isSendingData && <Spinner message='Submitting your request' />}
           {submittedData && (
-            <ModalSummary onClose={closeModal} data={submittedData} />
+            <ModalSummaryContainer onClose={closeModal} data={submittedData} />
           )}
         </ModalLayout>
       ) : (

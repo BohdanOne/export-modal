@@ -1,0 +1,19 @@
+.modal__summary {
+  min-height: 300px;
+  padding: 1rem;
+}
+
+.summary__field + .summary__field{
+  margin-top: 1rem;
+}
+
+.summary__field-label {
+  display: inline-block;
+  width: 120px;
+  font-weight: 700;
+}
+
+.summary__field-label--at {
+  width: fit-content;
+  padding: 0 1rem;
+}
