@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import ModalLayout from './shared/ModalLayout';
-import ModalControlButton from './shared/ModalControlButton';
-import Spinner from './shared/Spinner';
-import ModalFormContainer from './form';
-import ModalSummaryContainer from './summary';
+import ModalLayout from './components/shared/ModalLayout';
+import ModalControlButton from './components/shared/ModalControlButton';
+import Spinner from './components/shared/Spinner';
+import ModalFormContainer from './components/form';
+import ModalSummaryContainer from './components/summary';
+import connectToAPI from './utils/connectToAPI'
 import './styles/index.scss';
 
 const ModalContainer = () => {
@@ -17,20 +18,12 @@ const ModalContainer = () => {
   };
 
   const submit = async data => {
-    const URL =
-      'https://cors-anywhere.herokuapp.com/https://postman-echo.com/post';
-
     setIsSendingData(true);
 
-    const res = await fetch(URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
+    const receivedData = await connectToAPI(data)
 
-    const json = await res.json();
     setIsSendingData(false);
-    setSubmittedData(json.data);
+    setSubmittedData(receivedData);
   };
 
   return (

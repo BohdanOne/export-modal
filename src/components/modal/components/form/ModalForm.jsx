@@ -4,7 +4,7 @@ import ModalFormField from './ModalFormField';
 import ModalTextInput from './ModalTextInput';
 import ModalRadioInput from './ModalRadioInput';
 import ModalDateInput from './ModalDateInput';
-import { renderDateInputLabel } from '../utils/utils';
+import { renderDateInputLabel } from '../../utils/utils';
 
 const ModalForm = ({ onSubmit }) => {
   const formRef = useRef(null);
