@@ -4,7 +4,7 @@ import ModalControlButton from './components/shared/ModalControlButton';
 import Spinner from './components/shared/Spinner';
 import ModalFormContainer from './components/form';
 import ModalSummaryContainer from './components/summary';
-import connectToAPI from './utils/connectToAPI'
+import connectToAPI from './utils/connectToAPI';
 import './styles/index.scss';
 
 const ModalContainer = () => {
@@ -20,7 +20,7 @@ const ModalContainer = () => {
   const submit = async data => {
     setIsSendingData(true);
 
-    const receivedData = await connectToAPI(data)
+    const receivedData = await connectToAPI(data);
 
     setIsSendingData(false);
     setSubmittedData(receivedData);

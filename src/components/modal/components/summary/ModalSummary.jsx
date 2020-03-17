@@ -41,7 +41,7 @@ const ModalSummary = ({ data }) => {
 
       <div className="summary__field">
         <span className='summary__field-label'>Report name</span>
-        {data.name}
+        <span>{data.name}</span>
       </div>
       <div className="summary__field">
         <span className='summary__field-label'>Format</span>
