@@ -1,0 +1,85 @@
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  min-height: 270px;
+}
+
+.form__field {
+  @include center;
+  width: 100%;
+  height: fit-content;
+  min-height: 34px;
+}
+
+.form__field + .form__field {
+  margin-top: 1rem;
+}
+
+.form__field--input {
+  @include center;
+  width: calc(100% - 120px);
+  flex-wrap: wrap;
+}
+
+.form__field--radio {
+  @include center;
+}
+
+.form__label {
+  width: 120px;
+}
+
+.form__input--text {
+  padding: 0.5rem;
+  width: 100%;
+  font: inherit;
+  border: 1px solid;
+
+  &::placeholder {
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--color-gray);
+  }
+}
+
+.form__input--radio__label {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.form__input--radio {
+  display: block;
+}
+.form__input--radio__label + .form__input--radio {
+  margin-left: 0.5rem;
+}
+
+.form__input--time {
+  padding: 0.5rem;
+  max-height: 34px;
+  font: inherit;
+  color: var(--color-gray);
+  border: 1px solid var(--color-gray);
+  cursor: pointer;
+}
+
+.form__input--span {
+  padding: 0 1rem;
+}
+
+.form__input--text:invalid,
+.form__input--time:invalid {
+  color: var(--color-alert);
+}
+
+.form__input--select {
+  min-width: 120px;
+  appearance: none;
+  padding: 0.5rem;
+  border-radius: unset;
+  background-image: url('../../assets/select-arrow.svg');
+  background-position: right;
+  background-size: 20%;
+  background-repeat: no-repeat;
+}

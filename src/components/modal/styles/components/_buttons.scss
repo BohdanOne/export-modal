@@ -1,0 +1,54 @@
+button {
+  appearance: none;
+  width: 100px;
+  height: 40px;
+  font: inherit;
+  font-size: 0.9rem;
+  transition: color 0.3s, background-color 0.3s;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+button + button {
+  margin-left: 1rem;
+}
+
+.modal__btn--open {
+  width: 200px;
+  height: 60px;
+  color: #fff;
+  background-image: linear-gradient(
+    to right,
+    #3f3075,
+    rgb(72, 154, 168),
+    #3f3075
+  );
+  background-size: 200%;
+  background-position: left;
+  border: 2px solid;
+  transition: background-position 0.5s;
+
+  &:hover{
+    background-position: right;
+  }
+}
+
+.modal__btn--close {
+  @include colors(var(--color-gray), var(--color-white));
+  border: 1px solid;
+
+  &:hover{
+    @include colors(var(--color-white), var(--color-gray));
+  }
+}
+
+.modal__btn--submit {
+  @include colors(var(--color-white), var(--color-black));
+  border: 1px solid var(--color-black);
+
+  &:hover {
+    @include colors(var(--color-black), var(--color-white));
+  }
+}

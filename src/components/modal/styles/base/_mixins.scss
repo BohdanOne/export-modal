@@ -1,0 +1,9 @@
+@mixin center() {
+  display: flex;
+  align-items: center;
+}
+
+@mixin colors($front, $back) {
+  color: $front;
+  background-color: $back;
+}

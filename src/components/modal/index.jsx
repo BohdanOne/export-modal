@@ -4,7 +4,7 @@ import ModalControlButton from './shared/ModalControlButton';
 import Spinner from './shared/Spinner';
 import ModalFormContainer from './form';
 import ModalSummary from './summary';
-import './styles/Modal.css';
+import './styles/index.scss';
 
 const ModalContainer = () => {
   const [isOpen, toggleModal] = useState(false);
