@@ -1,0 +1,56 @@
+.spinner {
+  @include center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 420px;
+}
+
+.spinner__message {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.spinner__animation {
+  position: relative;
+  margin: 2rem;
+}
+
+.spinner__animation,
+.spinner__animation::before,
+.spinner__animation::after {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--color-black);
+  border-radius: 50%;
+  animation-name: spinner;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.spinner__animation::before,
+.spinner__animation::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: '';
+}
+
+.spinner__animation::before {
+  left: -4rem;
+}
+
+.spinner__animation::after {
+  right: -4rem;
+}
+
+@keyframes spinner {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
