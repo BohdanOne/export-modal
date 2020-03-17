@@ -1,16 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ModalRadioInput = ({ name, label, value, checked, onChange}) => {
+const ModalRadioInput = ({ name, label, value, checked, onChange }) => {
   const handleChange = e => {
     onChange && onChange(e);
-  }
+  };
 
   return (
-    <>
-      <input defaultChecked={checked} name={name} id={value} value={value} type='radio' onChange={handleChange}/>
-      <label htmlFor={value}>{label}</label>
-    </>
+    <div className='form__field--radio'>
+      <input
+        className='form__input--radio'
+        defaultChecked={checked}
+        name={name}
+        id={value}
+        value={value}
+        type='radio'
+        onChange={handleChange}
+      />
+      <label className='form__input--radio__label' htmlFor={value}>
+        {label}
+      </label>
+    </div>
   );
 };
 

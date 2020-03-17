@@ -33,8 +33,9 @@ const ModalFormContainer = ({ onClose, onSubmit}) => {
       <ModalHeader title='Export Report' />
       <ModalForm onSubmit={submitForm} />
       <ModalControls>
-        <ModalControlButton buttonText='Cancel' handleClick={closeModal} />
+        <ModalControlButton styleName='modal__btn--close' buttonText='Cancel' handleClick={closeModal} />
         <ModalControlButton
+          styleName='modal__btn--submit'
           form='modalForm'
           type='submit'
           buttonText='OK'

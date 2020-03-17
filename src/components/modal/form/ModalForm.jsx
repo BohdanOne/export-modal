@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import ModalFormControl from './ModalFormControl';
+import ModalFormField from './ModalFormField';
 import ModalTextInput from './ModalTextInput';
 import ModalRadioInput from './ModalRadioInput';
 import ModalDateInput from './date-input/ModalDateInput';
@@ -25,11 +25,11 @@ const ModalForm = ({ onSubmit }) => {
       onSubmit={submitForm}
       autoComplete='off'
     >
-      <ModalFormControl label='Report name' target='name'>
+      <ModalFormField label='Report name' target='name'>
         <ModalTextInput id='name' type='text' placeholder='Shareablee Report' />
-      </ModalFormControl>
+      </ModalFormField>
 
-      <ModalFormControl label='Format'>
+      <ModalFormField label='Format'>
         <ModalRadioInput
           name='format'
           label='Excel'
@@ -42,17 +42,17 @@ const ModalForm = ({ onSubmit }) => {
           value='csv'
           checked={false}
         />
-      </ModalFormControl>
+      </ModalFormField>
 
-      <ModalFormControl label='E-mail to' target='email'>
+      <ModalFormField label='E-mail to' target='email'>
         <ModalTextInput
           id='email'
           type='email'
           placeholder='client@company.com'
         />
-      </ModalFormControl>
+      </ModalFormField>
 
-      <ModalFormControl label='Schedule'>
+      <ModalFormField label='Schedule'>
         <ModalRadioInput
           name='schedule'
           label='No Repeat'
@@ -81,13 +81,13 @@ const ModalForm = ({ onSubmit }) => {
           checked={false}
           onChange={e => setSchedule(e.target.value)}
         />
-      </ModalFormControl>
+      </ModalFormField>
 
-      {schedule && (
-        <ModalFormControl label={renderDateInputLabel(schedule)}>
+      {schedule ? (
+        <ModalFormField label={renderDateInputLabel(schedule)}>
           <ModalDateInput schedule={schedule} />
-        </ModalFormControl>
-      )}
+        </ModalFormField>
+      ) : <ModalFormField label='' />}
     </form>
   );
 };

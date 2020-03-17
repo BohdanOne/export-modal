@@ -59,7 +59,7 @@ const ModalSummary = ({ onClose, data }) => {
       {generateScheduleField(data.schedule)}
 
       <ModalControls>
-        <ModalControlButton buttonText='OK' handleClick={closeModal} />
+        <ModalControlButton styleName='modal__btn--close' buttonText='OK' handleClick={closeModal} />
       </ModalControls>
     </>
   );

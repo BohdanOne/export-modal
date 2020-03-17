@@ -5,21 +5,21 @@ const ModalDateInput = ({ schedule }) => {
   if (schedule === 'date') {
     return (
       <>
-        <input type='date' name='scheduledDate' required/>
-        <span> at </span>
-        <input type='time' name='hour' id='' defaultValue='13:00' />
+        <input className='form__input--time' type='date' name='scheduledDate' required/>
+        <span className='form__input--span'> at </span>
+        <input className='form__input--time' type='time' name='hour' id='' defaultValue='13:00' required/>
       </>
     );
   }
 
   if (schedule === 'daily') {
-    return <input type='time' name='hour' id='' defaultValue='13:00' />;
+    return <input className='form__input--time' type='time' name='hour' id='' defaultValue='13:00' required/>;
   }
 
   if (schedule === 'weekly') {
     return (
       <>
-        <select name='day' form="modalForm">
+        <select className='form__input--time form__input--select' name='day' form="modalForm">
           <option value='monday'>Monday</option>
           <option value='tuesday'>Tuesday</option>
           <option value='wednesday'>Wednesday</option>
@@ -28,8 +28,8 @@ const ModalDateInput = ({ schedule }) => {
           <option value='saturday'>Saturday</option>
           <option value='sunday'>Sunday</option>
         </select>
-        <span> at </span>
-        <input type='time' name='hour' id='' defaultValue='13:00' />
+        <span className='form__input--span'> at </span>
+        <input className='form__input--time' type='time' name='hour' id='' defaultValue='13:00' required />
       </>
     );
   }

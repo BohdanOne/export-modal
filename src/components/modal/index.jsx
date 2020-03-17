@@ -47,6 +47,7 @@ const ModalContainer = () => {
         </ModalLayout>
       ) : (
         <ModalControlButton
+          styleName='modal__btn--open'
           buttonText='Export Report'
           handleClick={() => toggleModal(true)}
         />
