@@ -18,7 +18,7 @@ const ModalFormContainer = ({ onClose, onSubmit}) => {
     if (form.hour) {
       submitedData.hour = form.hour.value;
     }
-    if (form.weekday) {
+    if (form.day) {
       submitedData.day = form.day.value;
     }
     if (form.scheduledDate) {

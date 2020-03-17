@@ -57,7 +57,7 @@ const ModalForm = ({ onSubmit }) => {
           name='schedule'
           label='No Repeat'
           value='no'
-          checked={!schedule}
+          checked={true}
           onChange={e => setSchedule(false)}
         />
         <ModalRadioInput
