@@ -5,7 +5,7 @@ const ModalDateInput = ({ schedule }) => {
   if (schedule === 'date') {
     return (
       <>
-        <input type='date' name='scheduledDate' />
+        <input type='date' name='scheduledDate' required/>
         <span> at </span>
         <input type='time' name='hour' id='' defaultValue='13:00' />
       </>
@@ -19,7 +19,7 @@ const ModalDateInput = ({ schedule }) => {
   if (schedule === 'weekly') {
     return (
       <>
-        <select name='weekday' form="modalForm">
+        <select name='day' form="modalForm">
           <option value='monday'>Monday</option>
           <option value='tuesday'>Tuesday</option>
           <option value='wednesday'>Wednesday</option>

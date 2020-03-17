@@ -6,17 +6,25 @@ import ModalRadioInput from './ModalRadioInput';
 import ModalDateInput from './date-input/ModalDateInput';
 import { renderDateInputLabel } from './date-input/utils';
 
-const URL = 'https://cors-anywhere.herokuapp.com/https://postman-echo.com/post';
-
-const ModalFormContainer = () => {
+const ModalForm = ({ onSubmit }) => {
   const formRef = useRef(null);
 
   const [schedule, setSchedule] = useState(false);
-  const [format, setFormat] = useState('Excel');
 
-  
+  const submitForm = e => {
+    const form = formRef.current;
+    e.preventDefault();
+    onSubmit(form);
+  };
+
   return (
-    <form id='modalForm' className='modal__form' ref={formRef}>
+    <form
+      id='modalForm'
+      className='modal__form'
+      ref={formRef}
+      onSubmit={submitForm}
+      autoComplete='off'
+    >
       <ModalFormControl label='Report name' target='name'>
         <ModalTextInput id='name' type='text' placeholder='Shareablee Report' />
       </ModalFormControl>
@@ -27,14 +35,12 @@ const ModalFormContainer = () => {
           label='Excel'
           value='excel'
           checked={true}
-          onChange={e => setFormat(e.target.value)}
         />
         <ModalRadioInput
           name='format'
           label='CSV'
           value='csv'
           checked={false}
-          onChange={e => setFormat(e.target.value)}
         />
       </ModalFormControl>
 
@@ -86,4 +92,8 @@ const ModalFormContainer = () => {
   );
 };
 
-export default ModalFormContainer;
+ModalForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};
+
+export default ModalForm;

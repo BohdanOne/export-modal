@@ -3,23 +3,24 @@ import PropTypes from 'prop-types';
 import ModalHeader from '../shared/ModalHeader';
 import ModalControlButton from '../shared/ModalControlButton';
 import ModalControls from '../shared/ModalControls';
-// import ModalFormContainer from './ModalFormContainer';
 
-const ModalSummary = ({ onClose }) => {
-
+const ModalSummary = ({ onClose, data }) => {
   const closeModal = () => onClose();
-
-
 
   return (
     <>
       <ModalHeader title='Request Summary' />
-      <div>Summary</div>
+      <div>{data.name}</div>
       <ModalControls>
         <ModalControlButton buttonText='OK' handleClick={closeModal} />
       </ModalControls>
     </>
   );
+};
+
+ModalSummary.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
 };
 
 export default ModalSummary;
