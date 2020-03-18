@@ -11,9 +11,14 @@ const ModalSummaryContainer = ({ onClose, data }) => {
   return (
     <>
       <ModalHeader title='Request Submitted!' />
-        <ModalSummary data={data} />
+      <ModalSummary data={data} />
       <ModalControls>
-        <ModalControlButton styleName='modal__btn--close' buttonText='OK' handleClick={closeModal} />
+        <ModalControlButton
+          styleName='modal__btn--close'
+          buttonText='OK'
+          handleClick={closeModal}
+          ariaLabel='Close submission summary'
+        />
       </ModalControls>
     </>
   );

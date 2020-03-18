@@ -43,6 +43,7 @@ const ModalContainer = () => {
           styleName='modal__btn--open'
           buttonText='Export Report'
           handleClick={() => toggleModal(true)}
+          ariaLabel='Open Export Report submission form'
         />
       )}
     </>
