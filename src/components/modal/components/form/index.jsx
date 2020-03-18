@@ -4,28 +4,13 @@ import ModalHeader from '../shared/ModalHeader';
 import ModalControlButton from '../shared/ModalControlButton';
 import ModalControls from '../shared/ModalControls';
 import ModalForm from './ModalForm';
+import collectFormData from '../../utils/collectFormData'
 
 const ModalFormContainer = ({ onClose, onSubmit}) => {
   const closeModal = () => onClose();
 
   const submitForm = form => {
-    const submitedData = {
-      name: form.name.value,
-      format: form.format.value,
-      email: form.email.value,
-      schedule: form.schedule.value,
-    };
-    if (form.hour) {
-      submitedData.hour = form.hour.value;
-    }
-    if (form.day) {
-      submitedData.day = form.day.value;
-    }
-    if (form.scheduledDate) {
-      submitedData.date = form.scheduledDate.value;
-    }
-
-    onSubmit(submitedData);
+    onSubmit(collectFormData(form));
   };
 
   return (

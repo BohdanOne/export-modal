@@ -7,7 +7,7 @@ import ModalControlButton from '../../../components/shared/ModalControlButton';
 
 describe('<ModalSummaryContainer />', () => {
   it('renders Header, Summary and Close Button', () => {
-    const wrapper = shallow(<ModalSummaryContainer />);
+    const wrapper = shallow(<ModalSummaryContainer onClose={() => { return }} data={{}} />);
 
     expect(wrapper.find(ModalHeader).length).toEqual(1);
     expect(wrapper.find(ModalSummary).length).toEqual(1);
