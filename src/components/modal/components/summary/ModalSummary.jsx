@@ -1,35 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ModalSummaryField from './ModalSummaryField';
 
 const ModalSummary = ({ data }) => {
   const generateScheduleField = schedule => {
     switch (schedule) {
       case 'date':
         return (
-          <div className="summary__field">
-            <span className='summary__field-label'>Scheduled for</span>
-            {data.date}
-            <span className='summary__field-label--at'>at</span>
-            {data.hour}hr
-          </div>
+          <ModalSummaryField
+            name='Scheduled for'
+            content={data.hour}
+            dateContent={data.date}
+          />
         );
       case 'daily':
         return (
-          <div className="summary__field">
-            <span className='summary__field-label'>
-              Scheduled for everyday at
-            </span>
-            {data.hour}hr
-          </div>
+          <ModalSummaryField
+            name='Scheduled for everyday at'
+            content={data.hour}
+          />
         );
       case 'weekly':
         return (
-          <div className="summary__field">
-            <span className='summary__field-label'>Scheduled for every</span>
-            {data.day}
-            <span className='summary__field-label--at'>at</span>
-            {data.hour}hr
-          </div>
+          <ModalSummaryField
+            name='Scheduled for every'
+            content={data.hour}
+            dateContent={data.day}
+          />
         );
       default:
         return;
@@ -38,19 +35,10 @@ const ModalSummary = ({ data }) => {
 
   return (
     <div className='modal__summary'>
+      <ModalSummaryField name='Report name' content={data.name} />
+      <ModalSummaryField name='Format' content={data.format} />
+      <ModalSummaryField name='Send to' content={data.email} />
 
-      <div className="summary__field">
-        <span className='summary__field-label'>Report name</span>
-        <span>{data.name}</span>
-      </div>
-      <div className="summary__field">
-        <span className='summary__field-label'>Format</span>
-        {data.format}
-      </div>
-      <div className="summary__field">
-        <span className='summary__field-label'>Send to</span>
-        {data.email}
-      </div>
       {generateScheduleField(data.schedule)}
     </div>
   );
