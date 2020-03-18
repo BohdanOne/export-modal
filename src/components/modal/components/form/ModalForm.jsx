@@ -29,7 +29,7 @@ const ModalForm = ({ onSubmit }) => {
         <ModalTextInput id='name' type='text' placeholder='Shareablee Report' />
       </ModalFormField>
 
-      <ModalFormField label='Format'>
+      <ModalFormField label='Format' groupLabelId='formatGroup'>
         <ModalRadioInput
           name='format'
           label='Excel'
@@ -52,7 +52,7 @@ const ModalForm = ({ onSubmit }) => {
         />
       </ModalFormField>
 
-      <ModalFormField label='Schedule'>
+      <ModalFormField label='Schedule' groupLabelId='scheduleGroup'>
         <ModalRadioInput
           name='schedule'
           label='No Repeat'
