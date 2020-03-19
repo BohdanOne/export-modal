@@ -4,9 +4,27 @@ import ModalHeader from '../shared/ModalHeader';
 import ModalControlButton from '../shared/ModalControlButton';
 import ModalControls from '../shared/ModalControls';
 import ModalSummary from './ModalSummary';
+import ModalSummaryOnFailure from './ModalSummaryOnFailure';
 
 const ModalSummaryContainer = ({ onClose, data }) => {
   const closeModal = () => onClose();
+
+  if (data.error) {
+    return (
+      <>
+        <ModalHeader title='Submission failed!' />
+        <ModalSummaryOnFailure />
+        <ModalControls>
+          <ModalControlButton
+            styleName='modal__btn--close'
+            buttonText='OK'
+            handleClick={closeModal}
+            ariaLabel='Close submission summary'
+          />
+        </ModalControls>
+      </>
+    );
+  }
 
   return (
     <>

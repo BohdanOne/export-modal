@@ -9,33 +9,51 @@ import './styles/index.scss';
 
 const ModalContainer = () => {
   const [isOpen, toggleModal] = useState(false);
-  const [submittedData, setSubmittedData] = useState(null);
+  const [dataSubmitted, setDataSubmitted] = useState(null);
   const [isSendingData, setIsSendingData] = useState(false);
+  const [submissionFailed, setSubmissionFailed] = useState(false);
 
-  const closeModal = () => {
+  const isReady = !isSendingData && !dataSubmitted && !submissionFailed;
+
+  const resetModal = () => {
     toggleModal(false);
-    setSubmittedData(null);
+    setDataSubmitted(null);
+    setSubmissionFailed(false);
   };
 
-  const submit = async data => {
+  const handleSubmission = async data => {
     setIsSendingData(true);
 
     const receivedData = await connectToAPI(data);
 
     setIsSendingData(false);
-    setSubmittedData(receivedData);
+
+    if (receivedData) {
+      setDataSubmitted(receivedData);
+    } else {
+      setSubmissionFailed(true);
+    }
   };
 
   return (
     <>
       {isOpen ? (
         <ModalLayout>
-          {!isSendingData && !submittedData && (
-            <ModalFormContainer onClose={closeModal} onSubmit={submit} />
+          {isReady && (
+            <ModalFormContainer
+              onClose={resetModal}
+              onSubmit={handleSubmission}
+            />
           )}
           {isSendingData && <Spinner message='Submitting your request' />}
-          {submittedData && (
-            <ModalSummaryContainer onClose={closeModal} data={submittedData} />
+          {submissionFailed && (
+            <ModalSummaryContainer
+              onClose={resetModal}
+              data={{ error: true }}
+            />
+          )}
+          {dataSubmitted && (
+            <ModalSummaryContainer onClose={resetModal} data={dataSubmitted} />
           )}
         </ModalLayout>
       ) : (

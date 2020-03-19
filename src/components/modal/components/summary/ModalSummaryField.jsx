@@ -24,7 +24,7 @@ const ModalSummaryField = ({ name, content, dateContent }) => {
 ModalSummaryField.propTypes = {
   name: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  dateContent: PropTypes.string.isRequired
+  dateContent: PropTypes.string
 };
 
 export default ModalSummaryField;
